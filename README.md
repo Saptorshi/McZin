@@ -1,1 +1,3 @@
 # McZin
+
+Magazine CRUD Application
