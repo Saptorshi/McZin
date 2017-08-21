@@ -14,4 +14,7 @@ Rails.application.routes.draw do
 	get 'articles/:id' => 'articles#show', as: :article
   end
 
+  resources :comments, only: [:index, :create]
+  get '/comments/new/(:parent_id)', to: 'comments#new', as: :new_comment
+
 end
