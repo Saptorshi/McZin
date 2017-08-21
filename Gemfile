@@ -27,6 +27,11 @@ gem 'devise'
 # gem for bootstrap
 gem 'bootstrap', '~> 4.0.0.beta'
 
+#gem for closure- tree
+gem 'closure_tree'
+
+
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

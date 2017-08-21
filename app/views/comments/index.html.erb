@@ -1,0 +1,10 @@
+<div class="jumbotron">
+  <div class="container">
+    <h3>Click the button below to start a new thread:</h3>
+    <p>
+      <%= link_to 'Add new comment', new_comment_path, class: 'btn btn-primary btn-lg' %>
+    </p>
+  </div>
+</div>
+
+<%= comments_tree_for @comments %>

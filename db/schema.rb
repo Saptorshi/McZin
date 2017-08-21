@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170817123326) do
+ActiveRecord::Schema.define(version: 20170821175014) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -37,6 +37,23 @@ ActiveRecord::Schema.define(version: 20170817123326) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_authors_on_email", unique: true
     t.index ["reset_password_token"], name: "index_authors_on_reset_password_token", unique: true
+  end
+
+  create_table "comment_hierarchies", id: false, force: :cascade do |t|
+    t.integer "ancestor_id",   null: false
+    t.integer "descendant_id", null: false
+    t.integer "generations",   null: false
+    t.index ["ancestor_id", "descendant_id", "generations"], name: "comment_anc_desc_udx", unique: true
+    t.index ["descendant_id"], name: "comment_desc_idx"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "title"
+    t.string   "author"
+    t.text     "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "parent_id"
   end
 
 end
